@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block titre %}
+     
+{% endblock %}
+
+{% block body %}
+    <p>Liste des catégories</p>
+    <ul>
+    {% for cat in category %}
+        <li>{{ cat.name }} <a href="{{ path ('supprimer_category', { id : cat.id }) }}">supprimer<a></li>
+        
+    {% endfor %}
+    </ul>
+
+    {{ form_start(form) }}
+       {{ form_label(form.name, null, {'label_attr': {class:'form-label'}}) }}
+        {{ form_widget(form.name, {'attr': {class:'form-control'}}) }}
+        
+        <button type="submit" class="btn btn-success mt-2 mb-5">Enregistrer</button>
+
+        {{ form_rest(form) }}
+    {{ form_end(form) }}
+{% endblock %}
