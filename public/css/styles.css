@@ -1,0 +1,16 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+.accueil {
+    background: url('../assets/img/business-g88f0e3e85_1920.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+}

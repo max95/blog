@@ -9,7 +9,7 @@
         {% endif %}
     <small>{{ article.dateCreation|date('d/m/Y') }}</small>
     
-    <p> {{ article.contenu }}</p>
+    <p> {{ article.contenu|markdown_to_html }}</p>
     
     <h2>Comentaires</h2>
     <div class="row">

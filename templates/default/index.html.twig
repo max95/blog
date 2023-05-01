@@ -2,8 +2,43 @@
 
 {% block title %}Liste des articles !{% endblock %}
 
+{% block stylesheets %}{% endblock %}
+
 {% block body %}
-    <h1>Liste articles {% if brouillon %} brouillons {% endif %}</h1>
+
+    <section class="accueil bg-dark d-flex w-100 h-100 flex-column 
+      justify-content-center align-item_center">
+        <h1 class="display-1 text-white text-center">Lorem ipsum dolor sit amet consectetur, 
+            adipisicing elit. Dolorem, ipsam.</h1>
+        <P class="class lead text-center text-white">
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nemo et culpa quaerat 
+            distinctio, debitis quo quasi magni facilis dolorum fugiat.
+        </P>
+    </section>
+
+    <!-- Grille responsive-->
+    <div class="container py-5 bg-light">
+        <h2 class="display-4 text-center mb-5">Liste articles {% if brouillon %} brouillons {% endif %}</h2>
+        <div class="row">
+            {% for article in articles %}
+            <!-- Card -->
+            <div class="col-md-4 col-sm-6">
+                <div class="card mb-4 shadow-sm">
+                    <img src="http://via.placeholder.com/200x100" alt="" class="w-100">
+                    <div class="card-body">
+                        <p class="card-text">{{ article.titre }}</p>
+                        <a class="btn btn-sm btn-primary" href = "{{ path ('vue_article', { id : article.id }) }}" role="button">Découvrir</a>
+                    </div>
+                </div>
+            </div>
+            <!-- End Card -->
+            {% endfor %}
+        </div>
+        <!-- End Row -->
+    </div>
+
+
+    <h1></h1>
 
     <P>Le Tableau contient {{ articles|length}} article(s)</p>
 
