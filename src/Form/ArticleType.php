@@ -22,6 +22,11 @@ class ArticleType extends AbstractType
                 ]
             ])
             ->add('contenu')
+            ->add('author', null, [
+                'attr' =>[
+                    'placeholder' => "Nom du rédacteur"
+                ]
+            ])
             ->add('dateCreation', null, [
                 'widget' => 'single_text'])
             ->add('categories', EntityType::class, [

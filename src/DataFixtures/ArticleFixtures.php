@@ -16,6 +16,7 @@ class ArticleFixtures extends Fixture
             $article->setTitre("Article n°".$i);
             $article->setContenu("contenu de l'article");
             $article->setState($state[array_rand($state)]);
+            $article->setAuthor('Alex Martin');
             
             $date = new \DateTime();
             $date->modify('-'.$i.' days');

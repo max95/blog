@@ -2,24 +2,50 @@
 
 {% block title %}Ajouter un article !{% endblock %}
 
+{% block stylesheets %}{% endblock %}
+
 {% block body %}
-    {{ form_start(form) }}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('assets/img/post-bg.jpg')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>Ajouter un article</h1>
+                            <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                            <span class="meta">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-        {{ form_label(form.titre, null, {label_attr: {class: 'form-label'}} ) }}
-        {{ form_widget(form.titre, {'attr': {class: 'form-control'}} ) }}
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        {{ form_start(form) }}
 
-        {{ form_label(form.contenu, null, {label_attr: {class: 'form-label'}} ) }}
-        {{ form_widget(form.contenu, {'attr': {class: 'form-control'}} ) }}
+                            {{ form_label(form.titre, null, {label_attr: {class: 'form-label'}} ) }}
+                            {{ form_widget(form.titre, {'attr': {class: 'form-control'}} ) }}
 
-        {{ form_label(form.dateCreation, null, {label_attr: {class: 'form-label'}} ) }}
-        {{ form_widget(form.dateCreation, {'attr': {class: 'form-control'}} ) }}
+                            {{ form_label(form.contenu, null, {label_attr: {class: 'form-label'}} ) }}
+                            {{ form_widget(form.contenu, {'attr': {class: 'form-control'}} ) }}
 
-        {{ form_label(form.categories, null, {label_attr: {class: 'form-label'}} ) }}
-        {{ form_widget(form.categories, {'attr': {class: 'form-control'}} ) }}
-        
-        {{ form_widget(form.brouillon, {'attr': {class:'btn'}}) }}
-        {{ form_widget(form.publie, {'attr': {class:'btn btn-success'}}) }}
+                            {{ form_label(form.dateCreation, null, {label_attr: {class: 'form-label'}} ) }}
+                            {{ form_widget(form.dateCreation, {'attr': {class: 'form-control'}} ) }}
 
-        {{ form_rest(form)}}
-    {{ form_end(form) }}
+                            {{ form_label(form.categories, null, {label_attr: {class: 'form-label'}} ) }}
+                            {{ form_widget(form.categories, {'attr': {class: 'form-control'}} ) }}
+                            
+                            {{ form_widget(form.brouillon, {'attr': {class:'btn'}}) }}
+                            {{ form_widget(form.publie, {'attr': {class:'btn{% block stylesheets %}{% endblock %} btn-success'}}) }}
+
+                            {{ form_rest(form)}}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </article>
 {% endblock %}

@@ -17,6 +17,16 @@ use Symfony\Component\HttpFoundation\Request;
 class DefaultController extends AbstractController
 {
     /**
+     * @Route("about", name="about", methods={"GET"})
+     */
+    public function about(): Response
+    {
+        
+        return $this->render('default/about.html.twig', [
+        ]);
+    }
+
+    /**
      * @Route("", name="liste_article", methods={"GET"})
      */
     public function listeArticles(ArticleRepository $articleRepository): Response
