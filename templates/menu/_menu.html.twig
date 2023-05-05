@@ -1,7 +1,7 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg navbar-light" id="mainNav">
             <div class="container px-4 px-lg-5">
-                <a class="navbar-brand" href="index.html">Start Bootstrap</a>
+                <a class="navbar-brand" href="{{ path('liste_article')}}">Start Bootstrap</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
@@ -9,12 +9,21 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('liste_article')}}">Accueil</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle px-lg-3 py-3 py-lg-4" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Articles
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{{ path('liste_article')}}">Articles</a></li>
+                                {% if is_granted('ROLE_ADMIN', object = null, field = null) %}
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{{ path('ajout_article')}}">Ajout Article</a></li>
+                                <li><a class="dropdown-item" href="{{ path('liste_article_brouillon')}}">En cours de rédaction</a></li>
+                                {% endif %}
+                            </ul>
+                        </li>
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('about')}}">About</a></li>
-                        {% if is_granted('ROLE_ADMIN', object = null, field = null) %}
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('ajout_article')}}">Ajout Article</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('liste_article_brouillon')}}">Brouillons</a></li>
-                        <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="contact.html">Contact</a></li>
-                        {% endif %}
+
                         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                         <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{{ path('app_logout')}}">Déconnexion</a></li>
                         {% else %}
